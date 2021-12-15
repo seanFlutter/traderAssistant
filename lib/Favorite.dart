@@ -1,50 +1,45 @@
-import 'dart:ui';
+
+
+
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'Favorite.dart';
-import 'Market.dart';
 import 'PortFolios.dart';
-import 'RemoveAds.dart';
 import 'TargetPrice.dart';
+import 'main.dart';
+import 'package:traderassistant/Market.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false,home: FirstPage());
-  }
-}
-////FirstPage
-class FirstPage extends StatefulWidget {
-  const FirstPage({Key? key}) : super(key: key);
+////Favorites
+class Favorites extends StatefulWidget {
+  const Favorites({Key? key}) : super(key: key);
 
   @override
-  _FirstPageState createState() => _FirstPageState();
+  _FavoritesState createState() => _FavoritesState();
 }
 
-class _FirstPageState extends State<FirstPage> {
+class _FavoritesState extends State<Favorites> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
 
-      length: 2,
+      length: 1,
       child: Scaffold(
         backgroundColor: Color(0xff404040),
         appBar: AppBar(
           elevation: 0,
-          toolbarHeight: 50,
+          toolbarHeight: 30,
           bottom: TabBar(
-              tabs:<Widget>[
+            tabs:<Widget>[
 
-                Text('NOTICES'),
-                Text('ARCHIVE'),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('FAVORITES',style:TextStyle(fontSize: 15)),
+                ],
+              ),
 
-              ]
+            ],
           ),
           backgroundColor: Color(0xff404040),
           title: Column(
@@ -59,7 +54,7 @@ class _FirstPageState extends State<FirstPage> {
                   Icon(Icons.search, size: 35),
                   SizedBox(width: 8),
                   Icon(
-                    Icons.archive,
+                    Icons.two_k_plus,
                     size: 35,
                   ),
                   SizedBox(width: 8),
@@ -72,33 +67,11 @@ class _FirstPageState extends State<FirstPage> {
             ],
           ),
         ),
-        body: TabBarView(children: <Widget>[
-          Column(
-            children: [
-              
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text('10/12/21  17:16',style:TextStyle(color: Colors.white),),
-                  Text('EURUSD Cross Up Price 1.13129',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
-                  Text('Cur:1.13129 High:1.13137 Target price reached.',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
-                  Divider(thickness: 1,color: Colors.grey),
-                  Text('10/12/21  17:16',style:TextStyle(color: Colors.white),),
-                  Text('EURUSD Cross Up Price 1.13129',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.normal),),
-                  Text('Cur:1.13129 High:1.13137 Target price reached.',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.normal),),
-                  Divider(thickness: 1 ,color: Colors.grey),
-                  Text('10/12/21  17:16',style:TextStyle(color: Colors.white),),
-                  Text('The application has successfully connected to the server and ready to work ,You can go to the menu Markets to set a new signals and favorites.',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.normal),),
-                  Text('Cur:1.13129 High:1.13137 Target price reached.',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.normal),),
-                  Divider(thickness: 1 ,color: Colors.grey),
-
-                ],
-              ),
-            ],
-          ),
-          Text(''),
-        ],),
+        body: TabBarView(
+          children: [
+            Text(''),
+          ],
+        ),
         drawer: Drawer(
 
           child: ListView(
@@ -288,11 +261,6 @@ class _FirstPageState extends State<FirstPage> {
                 ),
                 tileColor: Color(0xff404040),
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context)=>const RemoveAds(),),
-                  );
                   // Update the state of the app.
                   // ...
                 },
@@ -383,31 +351,8 @@ class _FirstPageState extends State<FirstPage> {
             ],
           ),
         ),
+
       ),
     );
   }
 }
-
-
-
-class ListTitle extends StatelessWidget {
-  const ListTitle({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
