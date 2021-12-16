@@ -1,73 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'Favorite.dart';
-import 'PortFolios.dart';
-import 'TargetPrice.dart';
-import 'main.dart';
+import 'package:traderassistant/ui/notice_screen.dart';
+import '../Favorite.dart';
+import '../PortFolios.dart';
+import '../TargetPrice.dart';
+import '../main.dart';
 
 ////Market
-class Market extends StatefulWidget {
-  const Market({Key? key}) : super(key: key);
+class MarketScreen extends StatefulWidget {
+  static const id = 'market_screen';
 
   @override
-  _MarketState createState() => _MarketState();
+  _MarketScreenState createState() => _MarketScreenState();
 }
 
-class _MarketState extends State<Market> {
+class _MarketScreenState extends State<MarketScreen> {
 
 
-  Widget companyTile(String companyName, int companyPrice) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Row(
-            children: [
-              Text(
-                companyName,
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
-              SizedBox(width: 200),
-              Text(
-                '1.22432',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Text(
-                '19:39',
-                style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.grey),
-              ),
-              SizedBox(width: 270),
-              Text(
-                '-0.95%',
-                style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.red),
-              ),
-            ],
-          ),
-          Divider(
-            thickness: 1,
-            color: Colors.grey,
-          ),
-        ],
-      ),
-    );
-  }
+final List<String> companyNames = ['Cocacola', 'Pepsi', 'Fanta'];
+final List<int> companyPrices = [555, 333, 222];
 
   @override
   Widget build(BuildContext context) {
@@ -117,811 +68,10 @@ class _MarketState extends State<Market> {
         body: TabBarView(
           //These are the 9 tab bar views..........
           children: <Widget>[
-            Column(
-              children: [
-                companyTile(),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            'AUDUSD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(width: 200),
-                          Text(
-                            '1.22432',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '19:39',
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(width: 270),
-                          Text(
-                            '-0.95%',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            'AUDUSD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(width: 200),
-                          Text(
-                            '1.22432',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '19:39',
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(width: 270),
-                          Text(
-                            '-0.95%',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            'AUDUSD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(width: 200),
-                          Text(
-                            '1.22432',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '19:39',
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(width: 270),
-                          Text(
-                            '-0.95%',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            'AUDUSD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(width: 200),
-                          Text(
-                            '1.22432',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '19:39',
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(width: 270),
-                          Text(
-                            '-0.95%',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            'AUDUSD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(width: 200),
-                          Text(
-                            '1.22432',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '19:39',
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(width: 270),
-                          Text(
-                            '-0.95%',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            'AUDUSD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(width: 200),
-                          Text(
-                            '1.22432',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '19:39',
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(width: 270),
-                          Text(
-                            '-0.95%',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            'AUDUSD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(width: 200),
-                          Text(
-                            '1.22432',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '19:39',
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(width: 270),
-                          Text(
-                            '-0.95%',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            'AUDUSD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(width: 200),
-                          Text(
-                            '1.22432',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '19:39',
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(width: 270),
-                          Text(
-                            '-0.95%',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            'AUDUSD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(width: 200),
-                          Text(
-                            '1.22432',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '19:39',
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(width: 270),
-                          Text(
-                            '-0.95%',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            'AUDUSD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(width: 200),
-                          Text(
-                            '1.22432',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '19:39',
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(width: 270),
-                          Text(
-                            '-0.95%',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            'AUDUSD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(width: 200),
-                          Text(
-                            '1.22432',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '19:39',
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(width: 270),
-                          Text(
-                            '-0.95%',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            'AUDUSD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(width: 200),
-                          Text(
-                            '1.22432',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '19:39',
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(width: 270),
-                          Text(
-                            '-0.95%',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            'AUDUSD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(width: 200),
-                          Text(
-                            '1.22432',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '19:39',
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(width: 270),
-                          Text(
-                            '-0.95%',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            'AUDUSD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(width: 200),
-                          Text(
-                            '1.22432',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '19:39',
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(width: 270),
-                          Text(
-                            '-0.95%',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            'AUDUSD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(width: 200),
-                          Text(
-                            '1.22432',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '19:39',
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(width: 270),
-                          Text(
-                            '-0.95%',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Text(
-                            'AUDUSD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          SizedBox(width: 200),
-                          Text(
-                            '1.22432',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '19:39',
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(width: 270),
-                          Text(
-                            '-0.95%',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+
+            ListView.builder(itemCount: companyNames.length,itemBuilder: (context, i){
+              return CompanyTile(companyName: companyNames[i], companyPrice: companyPrices[i]);
+            }),
             Column(
               children: [
                 Container(
@@ -5285,11 +4435,9 @@ class _MarketState extends State<Market> {
                     ],
                   ),
                   onTap: () {
-                    Navigator.push(
+                    Navigator.pushNamed(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const FirstPage(),
-                      ),
+              NoticeScreen.id
                     );
                   }),
               ListTile(
@@ -5347,7 +4495,7 @@ class _MarketState extends State<Market> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Market(),
+                      builder: (context) =>  MarketScreen(),
                     ),
                   );
                   // Update the state of the app.
@@ -5529,6 +4677,66 @@ class _MarketState extends State<Market> {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class CompanyTile extends StatelessWidget {
+   CompanyTile({this.companyName, this.companyPrice});
+final String companyName;
+final int companyPrice;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: [
+              Text(
+                companyName,
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,),
+              ),
+              SizedBox(width: 200),
+              Text(
+                companyPrice.toString(),
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Text(
+                '19:39',
+                style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.grey),
+              ),
+              SizedBox(width: 270),
+              Text(
+                '-0.95%',
+                style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.red),
+              ),
+            ],
+          ),
+          Divider(
+            thickness: 1,
+            color: Colors.grey,
+          ),
+        ],
       ),
     );
   }

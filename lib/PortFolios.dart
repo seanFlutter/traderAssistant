@@ -3,14 +3,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:traderassistant/ui/notice_screen.dart';
 import 'Favorite.dart';
-import 'Market.dart';
+import 'ui/market_screen.dart';
 import 'TargetPrice.dart';
 import 'main.dart';
 
 ////PortFolios
 class PortFolios extends StatefulWidget {
-  const PortFolios({Key? key}) : super(key: key);
+  const PortFolios({Key key}) : super(key: key);
 
   @override
   _PortFoliosState createState() => _PortFoliosState();
@@ -20,7 +21,6 @@ class _PortFoliosState extends State<PortFolios> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-
       length: 1,
       child: Scaffold(
         backgroundColor: Color(0xff404040),
@@ -114,7 +114,7 @@ class _PortFoliosState extends State<PortFolios> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context)=>const FirstPage(),),
+                        builder: (context)=> NoticeScreen(),),
                     );
                   }),
               ListTile(
@@ -171,7 +171,7 @@ class _PortFoliosState extends State<PortFolios> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context)=>const Market(),),
+                      builder: (context)=> MarketScreen(),),
                   );
                   // Update the state of the app.
                   // ...

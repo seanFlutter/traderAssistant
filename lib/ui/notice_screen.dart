@@ -1,46 +1,38 @@
 
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:traderassistant/ui/notice_screen.dart';
-import 'PortFolios.dart';
-import 'TargetPrice.dart';
-import 'main.dart';
+import 'package:traderassistant/Favorite.dart';
+import 'package:traderassistant/PortFolios.dart';
+import 'package:traderassistant/RemoveAds.dart';
+import 'package:traderassistant/TargetPrice.dart';
 import 'package:traderassistant/ui/market_screen.dart';
 
-////Favorites
-class Favorites extends StatefulWidget {
-  const Favorites({Key key}) : super(key: key);
+class NoticeScreen extends StatefulWidget {
+static const id = 'notice_screen'
+    ;
 
   @override
-  _FavoritesState createState() => _FavoritesState();
+  _NoticeScreenState createState() => _NoticeScreenState();
 }
 
-class _FavoritesState extends State<Favorites> {
+class _NoticeScreenState extends State<NoticeScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
 
-      length: 1,
+      length: 2,
       child: Scaffold(
         backgroundColor: Color(0xff404040),
         appBar: AppBar(
           elevation: 0,
-          toolbarHeight: 30,
+          toolbarHeight: 50,
           bottom: TabBar(
-            tabs:<Widget>[
+              tabs:<Widget>[
 
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('FAVORITES',style:TextStyle(fontSize: 15)),
-                ],
-              ),
+                Text('NOTICES'),
+                Text('ARCHIVE'),
 
-            ],
+              ]
           ),
           backgroundColor: Color(0xff404040),
           title: Column(
@@ -55,7 +47,7 @@ class _FavoritesState extends State<Favorites> {
                   Icon(Icons.search, size: 35),
                   SizedBox(width: 8),
                   Icon(
-                    Icons.two_k_plus,
+                    Icons.archive,
                     size: 35,
                   ),
                   SizedBox(width: 8),
@@ -68,11 +60,28 @@ class _FavoritesState extends State<Favorites> {
             ],
           ),
         ),
-        body: TabBarView(
-          children: [
-            Text(''),
-          ],
-        ),
+        body: TabBarView(children: <Widget>[
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text('10/12/21  17:16',style:TextStyle(color: Colors.white),),
+              Text('EURUSD Cross Up Price 1.13129',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
+              Text('Cur:1.13129 High:1.13137 Target price reached.',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
+              Divider(thickness: 1,color: Colors.grey),
+              Text('10/12/21  17:16',style:TextStyle(color: Colors.white),),
+              Text('EURUSD Cross Up Price 1.13129',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.normal),),
+              Text('Cur:1.13129 High:1.13137 Target price reached.',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.normal),),
+              Divider(thickness: 1 ,color: Colors.grey),
+              Text('10/12/21  17:16',style:TextStyle(color: Colors.white),),
+              Text('The application has successfully connected to the server and ready to work ,You can go to the menu Markets to set a new signals and favorites.',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.normal),),
+              Text('Cur:1.13129 High:1.13137 Target price reached.',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.normal),),
+              Divider(thickness: 1 ,color: Colors.grey),
+
+            ],
+          ),
+          Text(''),
+        ],),
         drawer: Drawer(
 
           child: ListView(
@@ -113,11 +122,13 @@ class _FavoritesState extends State<Favorites> {
                     ],
                   ),
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context)=> NoticeScreen(),),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context)=>const NoticeScreen(),),
+                    // );
+
+                    Navigator.pushNamed(context, NoticeScreen.id);
                   }),
               ListTile(
                 title: Row(
@@ -173,7 +184,7 @@ class _FavoritesState extends State<Favorites> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context)=> MarketScreen(),),
+                      builder: (context) => MarketScreen(),),
                   );
                   // Update the state of the app.
                   // ...
@@ -262,6 +273,11 @@ class _FavoritesState extends State<Favorites> {
                 ),
                 tileColor: Color(0xff404040),
                 onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context)=>const RemoveAds(),),
+                  );
                   // Update the state of the app.
                   // ...
                 },
@@ -352,7 +368,6 @@ class _FavoritesState extends State<Favorites> {
             ],
           ),
         ),
-
       ),
     );
   }
