@@ -1,10 +1,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:traderassistant/Favorite.dart';
-import 'package:traderassistant/PortFolios.dart';
-import 'package:traderassistant/RemoveAds.dart';
-import 'package:traderassistant/TargetPrice.dart';
+import 'package:traderassistant/favorite.dart';
+import 'package:traderassistant/portfolios.dart';
+import 'package:traderassistant/removeAds.dart';
+import 'package:traderassistant/targetPrice.dart';
 import 'package:traderassistant/ui/market_screen.dart';
 
 class NoticeScreen extends StatefulWidget {
@@ -91,7 +91,7 @@ class _NoticeScreenState extends State<NoticeScreen> {
                 margin: EdgeInsets.all(0),
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('images/stock2.jpeg'),
+                    image: AssetImage('assets/images/stock2.jpeg'),
                     fit: BoxFit.fitWidth,
                   ),
                   color: Color(0xff404040),

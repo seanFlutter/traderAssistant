@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 ////Remove Ads
 class RemoveAds extends StatefulWidget {
-  const RemoveAds({Key key}) : super(key: key);
+  const RemoveAds({Key? key}) : super(key: key);
 
   @override
   _RemoveAdsState createState() => _RemoveAdsState();

@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:traderassistant/ui/notice_screen.dart';
-import '../Favorite.dart';
-import '../PortFolios.dart';
-import '../TargetPrice.dart';
+import '../favorite.dart';
+import '../portfolios.dart';
+import '../targetPrice.dart';
 import '../main.dart';
 
 ////Market
@@ -4404,7 +4404,7 @@ final List<int> companyPrices = [555, 333, 222];
                 margin: EdgeInsets.all(0),
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('images/stock2.jpeg'),
+                    image: AssetImage('assets/images/stock2.jpeg'),
                     fit: BoxFit.fitWidth,
                   ),
                   color: Color(0xff404040),
@@ -4684,8 +4684,8 @@ final List<int> companyPrices = [555, 333, 222];
 
 class CompanyTile extends StatelessWidget {
    CompanyTile({this.companyName, this.companyPrice});
-final String companyName;
-final int companyPrice;
+final String? companyName;
+final int? companyPrice;
 
   @override
   Widget build(BuildContext context) {
@@ -4697,7 +4697,7 @@ final int companyPrice;
           Row(
             children: [
               Text(
-                companyName,
+                companyName!,
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -4705,7 +4705,7 @@ final int companyPrice;
               ),
               SizedBox(width: 200),
               Text(
-                companyPrice.toString(),
+                companyPrice!.toString(),
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

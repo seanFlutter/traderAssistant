@@ -1,18 +1,13 @@
-
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:traderassistant/ui/notice_screen.dart';
-import 'PortFolios.dart';
-import 'TargetPrice.dart';
-import 'main.dart';
+import 'portfolios.dart';
+import 'targetPrice.dart';
 import 'package:traderassistant/ui/market_screen.dart';
 
 ////Favorites
 class Favorites extends StatefulWidget {
-  const Favorites({Key key}) : super(key: key);
+  const Favorites({Key? key}) : super(key: key);
 
   @override
   _FavoritesState createState() => _FavoritesState();
@@ -82,7 +77,7 @@ class _FavoritesState extends State<Favorites> {
                 margin: EdgeInsets.all(0),
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('images/stock2.jpeg'),
+                    image: AssetImage('assets/images/stock2.jpeg'),
                     fit: BoxFit.fitWidth,
                   ),
                   color: Color(0xff404040),
@@ -143,7 +138,7 @@ class _FavoritesState extends State<Favorites> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context)=>const TargetPrice(),),
+                      builder: (context)=> TargetPrice(),),
                   );
                   // Update the state of the app.
                   // ...
@@ -235,7 +230,7 @@ class _FavoritesState extends State<Favorites> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context)=>const PortFolios(),),
+                      builder: (context)=> PortFolios(),),
                   );
                   // Update the state of the app.
                   // ...

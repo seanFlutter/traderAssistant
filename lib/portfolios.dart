@@ -4,14 +4,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:traderassistant/ui/notice_screen.dart';
-import 'Favorite.dart';
+import 'favorite.dart';
 import 'ui/market_screen.dart';
-import 'TargetPrice.dart';
+import 'targetPrice.dart';
 import 'main.dart';
 
 ////PortFolios
 class PortFolios extends StatefulWidget {
-  const PortFolios({Key key}) : super(key: key);
+  const PortFolios({Key? key});
 
   @override
   _PortFoliosState createState() => _PortFoliosState();
@@ -80,7 +80,7 @@ class _PortFoliosState extends State<PortFolios> {
                 margin: EdgeInsets.all(0),
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('images/stock2.jpeg'),
+                    image: AssetImage('assets/images/stock2.jpeg'),
                     fit: BoxFit.fitWidth,
                   ),
                   color: Color(0xff404040),
@@ -141,7 +141,7 @@ class _PortFoliosState extends State<PortFolios> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context)=>const TargetPrice(),),
+                      builder: (context)=> TargetPrice(),),
                   );
                   // Update the state of the app.
                   // ...
@@ -187,8 +187,8 @@ class _PortFoliosState extends State<PortFolios> {
                       color: Colors.grey,
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: const Text(
+                      padding:  EdgeInsets.all(8.0),
+                      child:  Text(
                         'Favorites',
                         style: TextStyle(
                           fontSize: 15,
@@ -203,7 +203,7 @@ class _PortFoliosState extends State<PortFolios> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context)=>const Favorites(),),
+                      builder: (context)=> Favorites(),),
                   );
                   // Update the state of the app.
                   // ...
@@ -218,7 +218,7 @@ class _PortFoliosState extends State<PortFolios> {
                       color: Colors.grey,
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding:  EdgeInsets.all(8.0),
                       child: Text(
                         'PortFolios',
                         style: TextStyle(
@@ -230,11 +230,11 @@ class _PortFoliosState extends State<PortFolios> {
                   ],
                 ),
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context)=>const PortFolios(),),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context)=> PortFolios(),),
+                  // );
                   // Update the state of the app.
                   // ...
                 },
@@ -247,8 +247,8 @@ class _PortFoliosState extends State<PortFolios> {
                       color: Colors.grey,
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: const Text(
+                      padding:  EdgeInsets.all(8.0),
+                      child:  Text(
                         'Remove Ads',
                         style: TextStyle(
                           fontSize: 15,
@@ -277,7 +277,7 @@ class _PortFoliosState extends State<PortFolios> {
                       color: Colors.grey,
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding:  EdgeInsets.all(8.0),
                       child: Text(
                         'Settings',
                         style: TextStyle(

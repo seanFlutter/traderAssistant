@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 /////Target Price
 class TargetPrice extends StatefulWidget {
-  const TargetPrice({Key key}) : super(key: key);
+  const TargetPrice({Key? key}) : super(key: key);
 
   @override
   _TargetPriceState createState() => _TargetPriceState();
