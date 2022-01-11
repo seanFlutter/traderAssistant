@@ -24,13 +24,11 @@ class AlbumClassState extends State<AlbumClass>{
 
   @override
   void initState() {
-    setState(() {
-
-    });
     loadAlbums();
     // TODO: implement initState
     super.initState();
   }
+
   loadAlbums() async
   {
     print('check: loading albums');
@@ -55,8 +53,9 @@ class AlbumClassState extends State<AlbumClass>{
       body: BlocBuilder<AlbumsBloc,AlbumsState>(builder: (BuildContext context,AlbumsState state){
         print('check: state is $state');
         if (state is AlbumListErrorstate) {
+          print('check: error here');
           final error = state.error;
-          String message = '${error.message}\nTap to Retry.';
+          String message = '${error.toString()}\nTap to Retry.';
           return Text(
             message,
           );
@@ -75,11 +74,13 @@ class AlbumClassState extends State<AlbumClass>{
       }),
     );
   }
-  Widget _list(List<Stocks> stockes) {
+
+  Widget _list(
+      List<Stocks> stockes) {
     return ListView.builder(
       itemCount: stockes.length,
       itemBuilder: (_, index) {
-        Stocks stocks = stockes[index];
+        var stocks = stockes[index];
         return Container(
           padding: EdgeInsets.all(8.0),
           child: Column(
@@ -88,7 +89,7 @@ class AlbumClassState extends State<AlbumClass>{
             children: [
               Container(
                 child: Text(
-                  stocks.name!,
+                  stocks.name,
                   style: TextStyle(
                     fontSize: 20,
                     color: Theme.of(context).textTheme.bodyText1!.color,
@@ -103,6 +104,36 @@ class AlbumClassState extends State<AlbumClass>{
     );
 
   }
+
+
+  // Widget _list(List<Stocks> stockes) {
+  //   return ListView.builder(
+  //     itemCount: stockes.length,
+  //     itemBuilder: (_, index) {
+  //       Stocks stocks = stockes[index];
+  //       return Container(
+  //         padding: EdgeInsets.all(8.0),
+  //         child: Column(
+  //           mainAxisAlignment: MainAxisAlignment.start,
+  //           crossAxisAlignment: CrossAxisAlignment.start,
+  //           children: [
+  //             Container(
+  //               child: Text(
+  //                 stocks.name!,
+  //                 style: TextStyle(
+  //                   fontSize: 20,
+  //                   color: Theme.of(context).textTheme.bodyText1!.color,
+  //                 ),
+  //               ),
+  //             ),
+  //             Divider(color: Theme.of(context).textTheme.bodyText1!.color,),
+  //           ],
+  //         ),
+  //       );;
+  //     },
+  //   );
+  //
+  // }
   // _setTheme(bool darkTheme) async {
   //   AppTheme selectedTheme =
   //   darkTheme ? AppTheme.lightTheme : AppTheme.darkTheme;

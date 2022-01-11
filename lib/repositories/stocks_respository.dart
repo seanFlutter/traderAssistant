@@ -6,8 +6,8 @@ import 'package:traderassistant/services/api_service.dart';
 class StocksRepository {
   // ApiProvider appApiProvider = ApiProvider();
 
-Future<List<Albums>> getAlbumsList() => AlbumService().getAlbums();
+//Future<List<Albums>> getAlbumsList() => AlbumService().getAlbums();
 //Future<StocksListResponse> fetchStocksList() => appApiProvider.fetchStocksList();
-Future<List<Stocks>> fetchStocksList() => StocksService().getStocksList();
+Future<List<Stocks>> fetchStocks() => StocksService().getStocksResponse();
 
 }

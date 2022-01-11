@@ -36,7 +36,10 @@ class MyApp extends StatelessWidget {
 
      // initialRoute: NoticeScreen.id,
       home: BlocProvider(create: (context)=>AlbumsBloc(stocksrepository: StocksRepository()),
-          child:AlbumClass()),
+          child:
+          AlbumClass(),
+        //MarketScreen()
+      ),
       routes: {
 NoticeScreen.id : (context) => NoticeScreen(),
 

@@ -16,8 +16,8 @@ class AlbumsBloc extends Bloc<AlbumEvent,AlbumsState>
 {
 
   final StocksRepository stocksrepository;
-  late List<Stocks>? listStocks;
-  AlbumsBloc({required this.stocksrepository, this.listStocks}) : super(AlbumInitialState()) {
+  late List<Stocks>? stocksResponse;
+  AlbumsBloc({required this.stocksrepository, this.stocksResponse}) : super(AlbumInitialState()) {
     on<AlbumGetEvent>((event, emit) async {
 
       emit(AlbumLoadingState());
@@ -25,10 +25,10 @@ class AlbumsBloc extends Bloc<AlbumEvent,AlbumsState>
       try {
         print('check: 1 gettinga album list');
         //      listAlbums = await albumsrepository.getAlbumsList();
-        listStocks = await StocksService().getStocksList();
+        stocksResponse = await StocksService().getStocksResponse();
         print('check: 2 confirm');
-        print('check: listAlbums is $listStocks');
-        emit (AlbumLoadedState(stocks: listStocks!));
+        print('check: listAlbums is $stocksResponse');
+        emit (AlbumLoadedState(stocks: stocksResponse!));
 
       }on SocketException {
         emit( AlbumListErrorstate(

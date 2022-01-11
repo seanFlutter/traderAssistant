@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:traderassistant/blocs/album_bloc/album_bloc.dart';
+import 'package:traderassistant/blocs/album_bloc/album_events.dart';
+import 'package:traderassistant/ui/album_page.dart';
 import 'package:traderassistant/ui/notice_screen.dart';
 import '../favorite.dart';
 import '../portfolios.dart';
@@ -10,8 +13,14 @@ import '../main.dart';
 class MarketScreen extends StatefulWidget {
   static const id = 'market_screen';
 
+  // @override
+  // _MarketScreenState createState() => _MarketScreenState();
   @override
-  _MarketScreenState createState() => _MarketScreenState();
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return AlbumClassState();
+  }
+
 }
 
 class _MarketScreenState extends State<MarketScreen> {
@@ -19,6 +28,21 @@ class _MarketScreenState extends State<MarketScreen> {
 
 final List<String> companyNames = ['Cocacola', 'Pepsi', 'Fanta'];
 final List<int> companyPrices = [555, 333, 222];
+
+// @override
+// void initState() {
+//   loadAlbums();
+//   // TODO: implement initState
+//   super.initState();
+// }
+
+// loadAlbums() async
+// {
+//   print('check: loading albums');
+//   context.read<AlbumsBloc>().add(AlbumGetEvent());
+//   // context.read<AlbumsBloc>().add(AlbumEvents.fetchAlbums);
+//   print('check: loaded albums');
+// }
 
   @override
   Widget build(BuildContext context) {
