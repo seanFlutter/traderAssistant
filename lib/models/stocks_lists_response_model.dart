@@ -1,61 +1,91 @@
+// To parse this JSON data, do
+//
+//     final stocksQueryResponse = stocksQueryResponseFromJson(jsonString);
+
+import 'dart:convert';
+
+StocksQueryResponse stocksQueryResponseFromJson(String str) => StocksQueryResponse.fromJson(json.decode(str));
+
+String stocksQueryResponseToJson(StocksQueryResponse data) => json.encode(data.toJson());
+
 class StocksQueryResponse {
   StocksQueryResponse({
-    required this.data,
-    required this.status,
+    this.data,
+    this.status,
   });
-  late final List<Stocks> data;
-  late final String status;
 
-  factory StocksQueryResponse.fromJson(Map<String, dynamic> json){
-   // data = List.from(json['data']).map((e)=>Stocks.fromJson(e)).toList();
-    var list = json["data"] as List;
-    print('check: type here is ${list.runtimeType}');
-   List<Stocks> dataa = list.map((e) => Stocks.fromJson(e)).toList();
-   String statuss = json['status'];
-   return StocksQueryResponse(data: dataa, status: statuss);
-  }
+  final  List<Stocks>? data;
+  final String? status;
 
-  Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['data'] = data.map((e)=>e.toJson()).toList();
-    _data['status'] = status;
-    return _data;
-  }
+  StocksQueryResponse copyWith({
+    List<Stocks>? data,
+    String? status,
+  }) =>
+      StocksQueryResponse(
+        data: data ?? this.data,
+        status: status ?? this.status,
+      );
+
+  factory StocksQueryResponse.fromJson(Map<String, dynamic> json) => StocksQueryResponse(
+    data: List<Stocks>.from(json["data"].map((x) => Stocks.fromJson(x))),
+    status: json["status"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "data": List<dynamic>.from(data!.map((x) => x.toJson())),
+    "status": status,
+  };
 }
 
 class Stocks {
   Stocks({
-    required this.symbol,
-    required this.name,
-    required this.currency,
-    required this.exchange,
-    required this.country,
-    required this.type,
+    this.symbol,
+    this.name,
+    this.currency,
+    this.exchange,
+    this.country,
+    this.type,
   });
-  late final String symbol;
-  late final String name;
-  late final String currency;
-  late final String exchange;
-  late final String country;
-  late final String type;
 
-  Stocks.fromJson(Map<String, dynamic> json){
-    symbol = json['symbol'];
-    name = json['name'];
-    currency = json['currency'];
-    exchange = json['exchange'];
-    country = json['country'];
-    type = json['type'];
-  }
+  final String? symbol;
+  final String? name;
+  final String? currency;
+  final String? exchange;
+  final String? country;
+  final String? type;
 
-  Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['symbol'] = symbol;
-    _data['name'] = name;
-    _data['currency'] = currency;
-    _data['exchange'] = exchange;
-    _data['country'] = country;
-    _data['type'] = type;
-    return _data;
-  }
+  Stocks copyWith({
+    String? symbol,
+    String? name,
+    String? currency,
+    String? exchange,
+    String? country,
+    String? type,
+  }) =>
+      Stocks(
+        symbol: symbol ?? this.symbol,
+        name: name ?? this.name,
+        currency: currency ?? this.currency,
+        exchange: exchange ?? this.exchange,
+        country: country ?? this.country,
+        type: type ?? this.type,
+      );
+
+  factory Stocks.fromJson(Map<String, dynamic> json) => Stocks(
+    symbol: json["symbol"],
+    name: json["name"],
+    currency: json["currency"],
+    exchange: json["exchange"],
+    country: json["country"],
+    type: json["type"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "symbol": symbol,
+    "name": name,
+    "currency": currency,
+    "exchange": exchange,
+    "country": country,
+    "type": type,
+  };
 }

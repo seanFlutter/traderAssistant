@@ -8,6 +8,6 @@ class StocksRepository {
 
 //Future<List<Albums>> getAlbumsList() => AlbumService().getAlbums();
 //Future<StocksListResponse> fetchStocksList() => appApiProvider.fetchStocksList();
-Future<List<Stocks>> fetchStocks() => StocksService().getStocksResponse();
+Future<StocksQueryResponse> fetchStocks() => StocksService().getStocksResponse();
 
 }

@@ -62,7 +62,7 @@ class AlbumClassState extends State<AlbumClass>{
         }
         if (state is AlbumLoadedState) {
           print('check: state is correct');
-          List<Stocks> stocks = state.stocks;
+         StocksQueryResponse stocks = state.stocks;
           print('album list is $stocks');
           return _list(stocks);
 
@@ -76,11 +76,11 @@ class AlbumClassState extends State<AlbumClass>{
   }
 
   Widget _list(
-      List<Stocks> stockes) {
+      StocksQueryResponse stockes) {
     return ListView.builder(
-      itemCount: stockes.length,
+      itemCount: stockes.data!.length,
       itemBuilder: (_, index) {
-        var stocks = stockes[index];
+        var stocks = stockes.data![index];
         return Container(
           padding: EdgeInsets.all(8.0),
           child: Column(
@@ -89,7 +89,7 @@ class AlbumClassState extends State<AlbumClass>{
             children: [
               Container(
                 child: Text(
-                  stocks.name,
+                  stocks.name!,
                   style: TextStyle(
                     fontSize: 20,
                     color: Theme.of(context).textTheme.bodyText1!.color,

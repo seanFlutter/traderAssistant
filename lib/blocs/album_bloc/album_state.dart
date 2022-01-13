@@ -21,7 +21,7 @@ class AlbumGetState extends AlbumsState{
 }
 
 class AlbumLoadedState extends AlbumsState{
-  final List<Stocks> stocks;
+  final StocksQueryResponse stocks;
   AlbumLoadedState({required this.stocks});
 }
 class AlbumListErrorstate extends AlbumsState{

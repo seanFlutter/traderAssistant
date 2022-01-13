@@ -8,11 +8,7 @@ import 'package:traderassistant/providers/market_provider.dart';
 import 'package:traderassistant/repositories/stocks_respository.dart';
 import 'package:traderassistant/ui/album_page.dart';
 import 'package:traderassistant/ui/notice_screen.dart';
-
-import 'favorite.dart';
 import 'ui/market_screen.dart';
-import 'portfolios.dart';
-import 'removeAds.dart';
 import 'package:provider/provider.dart';
 import 'targetPrice.dart';
 
@@ -35,17 +31,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
 
      // initialRoute: NoticeScreen.id,
-      home: BlocProvider(create: (context)=>AlbumsBloc(stocksrepository: StocksRepository()),
+      home: BlocProvider(create: (context)=>AlbumsBloc(stocksrepository: StocksRepository(),),
           child:
-          AlbumClass(),
-        //MarketScreen()
+        //  AlbumClass(),
+        MarketScreen()
       ),
       routes: {
 NoticeScreen.id : (context) => NoticeScreen(),
-
 MarketScreen.id : (context) => MarketScreen(),
-
-    },
+     },
     );
   }
 }

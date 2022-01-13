@@ -14,12 +14,8 @@ class MarketScreen extends StatefulWidget {
   static const id = 'market_screen';
 
   // @override
-  // _MarketScreenState createState() => _MarketScreenState();
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return AlbumClassState();
-  }
+   _MarketScreenState createState() => _MarketScreenState();
+
 
 }
 

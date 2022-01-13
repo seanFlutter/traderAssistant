@@ -16,7 +16,7 @@ class AlbumsBloc extends Bloc<AlbumEvent,AlbumsState>
 {
 
   final StocksRepository stocksrepository;
-  late List<Stocks>? stocksResponse;
+  late StocksQueryResponse? stocksResponse;
   AlbumsBloc({required this.stocksrepository, this.stocksResponse}) : super(AlbumInitialState()) {
     on<AlbumGetEvent>((event, emit) async {
 

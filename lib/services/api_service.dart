@@ -8,7 +8,7 @@ import 'package:traderassistant/models/stocks_lists_response_model.dart';
 class StocksService{
   String BASE_URL = 'https://twelve-data1.p.rapidapi.com/stocks';
 
-Future<List<Stocks>> getStocksResponse () async {
+Future<StocksQueryResponse> getStocksResponse () async {
  // List<Stocks> stocksList = [];
   try {
     Map<String, String>? headas = {"x-rapidapi-host": "twelve-data1.p.rapidapi.com", "x-rapidapi-key":"cbbab92058mshcce8d50b89a419ap1fc7a5jsn89e465c1cae9"};
@@ -17,15 +17,12 @@ Future<List<Stocks>> getStocksResponse () async {
 
     if (response.statusCode == 200) {
 print('1');
-final kpai = json.decode(response.body);
-print('y');
-List<Map<String, dynamic>> yo = kpai["data"] ;
+//final kpai = json.decode(response.body);
+return stocksQueryResponseFromJson(response.body);
+
 
 print('2');
-return yo.map((e) {
-  return Stocks(symbol: e["symbol"], name: e["name"], currency: e["currency"], exchange: e["exchange"], country: e["country"], type: e["type"]);
-}
-).toList();
+
 
     } else {
       print('check: response not 200, response is ${response.statusCode}');
