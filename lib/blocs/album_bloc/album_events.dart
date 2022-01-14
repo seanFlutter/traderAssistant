@@ -2,10 +2,10 @@ enum AlbumEvents{
   fetchAlbums
 }
 
-abstract class AlbumEvent {}
+abstract class StockEvent {}
 
-class AlbumInitialEvent extends AlbumEvent {}
+class AlbumInitialEvent extends StockEvent {}
 
-class AlbumGetEvent extends AlbumEvent {
+class AlbumGetEvent extends StockEvent {
 
 }

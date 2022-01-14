@@ -32,7 +32,7 @@ class AlbumClassState extends State<AlbumClass>{
   loadAlbums() async
   {
     print('check: loading albums');
-    context.read<AlbumsBloc>().add(AlbumGetEvent());
+    context.read<StocksBloc>().add(AlbumGetEvent());
     // context.read<AlbumsBloc>().add(AlbumEvents.fetchAlbums);
     print('check: loaded albums');
   }
@@ -50,7 +50,7 @@ class AlbumClassState extends State<AlbumClass>{
           },
         )
       ],),
-      body: BlocBuilder<AlbumsBloc,AlbumsState>(builder: (BuildContext context,AlbumsState state){
+      body: BlocBuilder<StocksBloc,AlbumsState>(builder: (BuildContext context,AlbumsState state){
         print('check: state is $state');
         if (state is AlbumListErrorstate) {
           print('check: error here');
@@ -62,7 +62,7 @@ class AlbumClassState extends State<AlbumClass>{
         }
         if (state is AlbumLoadedState) {
           print('check: state is correct');
-         StocksQueryResponse stocks = state.stocks;
+         List<Stocks> stocks = state.stocks;
           print('album list is $stocks');
           return _list(stocks);
 
@@ -76,11 +76,11 @@ class AlbumClassState extends State<AlbumClass>{
   }
 
   Widget _list(
-      StocksQueryResponse stockes) {
+      List<Stocks> stockes) {
     return ListView.builder(
-      itemCount: stockes.data!.length,
+      itemCount: stockes.length,
       itemBuilder: (_, index) {
-        var stocks = stockes.data![index];
+        var stocks = stockes[index];
         return Container(
           padding: EdgeInsets.all(8.0),
           child: Column(

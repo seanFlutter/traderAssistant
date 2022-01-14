@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:traderassistant/blocs/album_bloc/album_bloc.dart';
 import 'package:traderassistant/blocs/album_bloc/album_events.dart';
+import 'package:traderassistant/services/api_service.dart';
 import 'package:traderassistant/ui/album_page.dart';
 import 'package:traderassistant/ui/notice_screen.dart';
 import '../favorite.dart';
@@ -40,6 +42,20 @@ final List<int> companyPrices = [555, 333, 222];
 //   print('check: loaded albums');
 // }
 
+
+  loadAlbums() async
+  {
+    print('check: loading albums');
+    context.read<StocksBloc>().add(AlbumGetEvent());
+    // context.read<AlbumsBloc>().add(AlbumEvents.fetchAlbums);
+    print('check: loaded albums');
+  }
+@override
+  void initState() {
+    // TODO: implement initState
+loadAlbums();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -85,7 +101,24 @@ final List<int> companyPrices = [555, 333, 222];
             ],
           ),
         ),
-        body: TabBarView(
+        body:BlocBuilder(builder: (BuildContext context, AlbumState state){
+
+          if (state is AlbumListErrorstate) {
+            print('check: error here');
+            final error = state.error;
+            String message = '${error.toString()}\nTap to Retry.';
+            return Text(
+              message,
+            );
+          }
+          if (state is AlbumLoadedState) {
+            print('check: state is correct');
+            List<Stocks> stocks = state.stocks;
+            print('album list is $stocks');
+            return _list(stocks);
+
+          }
+          return  TabBarView(
           //These are the 9 tab bar views..........
           children: <Widget>[
 
@@ -4415,7 +4448,7 @@ final List<int> companyPrices = [555, 333, 222];
               ],
             ),
           ],
-        ),
+        );}),
         drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,

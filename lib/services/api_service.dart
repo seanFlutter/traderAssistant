@@ -8,17 +8,17 @@ import 'package:traderassistant/models/stocks_lists_response_model.dart';
 class StocksService{
   String BASE_URL = 'https://twelve-data1.p.rapidapi.com/stocks';
 
-Future<StocksQueryResponse> getStocksResponse () async {
+Future<List<Stocks>> getStocksResponse () async {
  // List<Stocks> stocksList = [];
   try {
     Map<String, String>? headas = {"x-rapidapi-host": "twelve-data1.p.rapidapi.com", "x-rapidapi-key":"cbbab92058mshcce8d50b89a419ap1fc7a5jsn89e465c1cae9"};
     var response =
-    await http.get(Uri.parse('https://jsonplaceholder.typicode.com/albums'), headers:headas);
+    await http.get(Uri.parse(BASE_URL), headers:headas);
 
     if (response.statusCode == 200) {
 print('1');
 //final kpai = json.decode(response.body);
-return stocksQueryResponseFromJson(response.body);
+return stocksQueryResponseFromJson(response.body).data!;
 
 
 print('2');

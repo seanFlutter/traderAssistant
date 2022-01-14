@@ -12,12 +12,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:traderassistant/models/album_model.dart';
 import 'package:traderassistant/services/api_service.dart';
 
-class AlbumsBloc extends Bloc<AlbumEvent,AlbumsState>
+class StocksBloc extends Bloc<StockEvent,AlbumsState>
 {
 
   final StocksRepository stocksrepository;
-  late StocksQueryResponse? stocksResponse;
-  AlbumsBloc({required this.stocksrepository, this.stocksResponse}) : super(AlbumInitialState()) {
+  late List<Stocks>? stocksResponse;
+  StocksBloc({required this.stocksrepository, this.stocksResponse}) : super(AlbumInitialState()) {
     on<AlbumGetEvent>((event, emit) async {
 
       emit(AlbumLoadingState());
