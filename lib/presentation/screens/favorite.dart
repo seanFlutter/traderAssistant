@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:traderassistant/ui/notice_screen.dart';
+import 'package:traderassistant/presentation/pages/notice_screen.dart';
 import 'portfolios.dart';
-import 'targetPrice.dart';
-import 'package:traderassistant/ui/market_screen.dart';
+import '../../targetPrice.dart';
+import 'package:traderassistant/presentation/pages/market_screen.dart';
 
 ////Favorites
 class Favorites extends StatefulWidget {

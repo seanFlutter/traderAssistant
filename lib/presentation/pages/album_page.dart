@@ -6,7 +6,7 @@ import 'package:traderassistant/blocs/album_bloc/album_events.dart';
 import 'package:traderassistant/blocs/album_bloc/album_state.dart';
 import 'package:traderassistant/models/album_model.dart';
 import 'package:traderassistant/models/stocks_lists_response_model.dart';
-import 'package:traderassistant/repositories/stocks_respository.dart';
+import 'package:traderassistant/data/repositories/stocks_respository.dart';
 
 class AlbumClass extends StatefulWidget{
   static const id = 'album_class';
@@ -32,7 +32,7 @@ class AlbumClassState extends State<AlbumClass>{
   loadAlbums() async
   {
     print('check: loading albums');
-    context.read<StocksBloc>().add(AlbumGetEvent());
+    context.read<StocksBloc>().add(StockGetEvent());
     // context.read<AlbumsBloc>().add(AlbumEvents.fetchAlbums);
     print('check: loaded albums');
   }
@@ -50,9 +50,9 @@ class AlbumClassState extends State<AlbumClass>{
           },
         )
       ],),
-      body: BlocBuilder<StocksBloc,AlbumsState>(builder: (BuildContext context,AlbumsState state){
+      body: BlocBuilder<StocksBloc,StocksState>(builder: (BuildContext context,StocksState state){
         print('check: state is $state');
-        if (state is AlbumListErrorstate) {
+        if (state is StockListErrorstate) {
           print('check: error here');
           final error = state.error;
           String message = '${error.toString()}\nTap to Retry.';
@@ -60,7 +60,7 @@ class AlbumClassState extends State<AlbumClass>{
             message,
           );
         }
-        if (state is AlbumLoadedState) {
+        if (state is StockLoadedState) {
           print('check: state is correct');
          List<Stocks> stocks = state.stocks;
           print('album list is $stocks');

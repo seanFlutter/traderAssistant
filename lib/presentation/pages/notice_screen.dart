@@ -1,44 +1,38 @@
 
-
-
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:traderassistant/ui/notice_screen.dart';
-import 'favorite.dart';
-import 'ui/market_screen.dart';
-import 'targetPrice.dart';
-import 'main.dart';
+import 'package:flutter/material.dart';
+import 'package:traderassistant/presentation/screens/favorite.dart';
+import 'package:traderassistant/presentation/screens/portfolios.dart';
+import 'package:traderassistant/presentation/screens/removeAds.dart';
+import 'package:traderassistant/targetPrice.dart';
+import 'package:traderassistant/presentation/pages/market_screen.dart';
 
-////PortFolios
-class PortFolios extends StatefulWidget {
-  const PortFolios({Key? key});
+class NoticeScreen extends StatefulWidget {
+static const id = 'notice_screen'
+    ;
 
   @override
-  _PortFoliosState createState() => _PortFoliosState();
+  _NoticeScreenState createState() => _NoticeScreenState();
 }
 
-class _PortFoliosState extends State<PortFolios> {
+class _NoticeScreenState extends State<NoticeScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 1,
+
+      length: 2,
       child: Scaffold(
         backgroundColor: Color(0xff404040),
         appBar: AppBar(
           elevation: 0,
-          toolbarHeight: 30,
+          toolbarHeight: 50,
           bottom: TabBar(
-            tabs:<Widget>[
+              tabs:<Widget>[
 
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('PORTFOLIOS',style:TextStyle(fontSize: 15)),
-                ],
-              ),
+                Text('NOTICES'),
+                Text('ARCHIVE'),
 
-            ],
+              ]
           ),
           backgroundColor: Color(0xff404040),
           title: Column(
@@ -53,7 +47,7 @@ class _PortFoliosState extends State<PortFolios> {
                   Icon(Icons.search, size: 35),
                   SizedBox(width: 8),
                   Icon(
-                    Icons.two_k_plus,
+                    Icons.archive,
                     size: 35,
                   ),
                   SizedBox(width: 8),
@@ -66,11 +60,28 @@ class _PortFoliosState extends State<PortFolios> {
             ],
           ),
         ),
-        body: TabBarView(
-          children: [
-            Text(''),
-          ],
-        ),
+        body: TabBarView(children: <Widget>[
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text('10/12/21  17:16',style:TextStyle(color: Colors.white),),
+              Text('EURUSD Cross Up Price 1.13129',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
+              Text('Cur:1.13129 High:1.13137 Target price reached.',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
+              Divider(thickness: 1,color: Colors.grey),
+              Text('10/12/21  17:16',style:TextStyle(color: Colors.white),),
+              Text('EURUSD Cross Up Price 1.13129',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.normal),),
+              Text('Cur:1.13129 High:1.13137 Target price reached.',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.normal),),
+              Divider(thickness: 1 ,color: Colors.grey),
+              Text('10/12/21  17:16',style:TextStyle(color: Colors.white),),
+              Text('The application has successfully connected to the server and ready to work ,You can go to the menu Markets to set a new signals and favorites.',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.normal),),
+              Text('Cur:1.13129 High:1.13137 Target price reached.',style:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.normal),),
+              Divider(thickness: 1 ,color: Colors.grey),
+
+            ],
+          ),
+          Text(''),
+        ],),
         drawer: Drawer(
 
           child: ListView(
@@ -111,11 +122,13 @@ class _PortFoliosState extends State<PortFolios> {
                     ],
                   ),
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context)=> NoticeScreen(),),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context)=>const NoticeScreen(),),
+                    // );
+
+                    Navigator.pushNamed(context, NoticeScreen.id);
                   }),
               ListTile(
                 title: Row(
@@ -141,7 +154,7 @@ class _PortFoliosState extends State<PortFolios> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context)=> TargetPrice(),),
+                      builder: (context)=>const TargetPrice(),),
                   );
                   // Update the state of the app.
                   // ...
@@ -171,7 +184,7 @@ class _PortFoliosState extends State<PortFolios> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context)=> MarketScreen(),),
+                      builder: (context) => MarketScreen(),),
                   );
                   // Update the state of the app.
                   // ...
@@ -187,8 +200,8 @@ class _PortFoliosState extends State<PortFolios> {
                       color: Colors.grey,
                     ),
                     Padding(
-                      padding:  EdgeInsets.all(8.0),
-                      child:  Text(
+                      padding: const EdgeInsets.all(8.0),
+                      child: const Text(
                         'Favorites',
                         style: TextStyle(
                           fontSize: 15,
@@ -203,7 +216,7 @@ class _PortFoliosState extends State<PortFolios> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context)=> Favorites(),),
+                      builder: (context)=>const Favorites(),),
                   );
                   // Update the state of the app.
                   // ...
@@ -218,7 +231,7 @@ class _PortFoliosState extends State<PortFolios> {
                       color: Colors.grey,
                     ),
                     Padding(
-                      padding:  EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'PortFolios',
                         style: TextStyle(
@@ -230,11 +243,11 @@ class _PortFoliosState extends State<PortFolios> {
                   ],
                 ),
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context)=> PortFolios(),),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context)=>const PortFolios(),),
+                  );
                   // Update the state of the app.
                   // ...
                 },
@@ -247,8 +260,8 @@ class _PortFoliosState extends State<PortFolios> {
                       color: Colors.grey,
                     ),
                     Padding(
-                      padding:  EdgeInsets.all(8.0),
-                      child:  Text(
+                      padding: const EdgeInsets.all(8.0),
+                      child: const Text(
                         'Remove Ads',
                         style: TextStyle(
                           fontSize: 15,
@@ -260,6 +273,11 @@ class _PortFoliosState extends State<PortFolios> {
                 ),
                 tileColor: Color(0xff404040),
                 onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context)=>const RemoveAds(),),
+                  );
                   // Update the state of the app.
                   // ...
                 },
@@ -277,7 +295,7 @@ class _PortFoliosState extends State<PortFolios> {
                       color: Colors.grey,
                     ),
                     Padding(
-                      padding:  EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'Settings',
                         style: TextStyle(
@@ -350,7 +368,6 @@ class _PortFoliosState extends State<PortFolios> {
             ],
           ),
         ),
-
       ),
     );
   }

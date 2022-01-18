@@ -5,27 +5,27 @@ import 'package:traderassistant/models/album_model.dart';
 import 'package:traderassistant/models/stocks_lists_response_model.dart';
 
 
-abstract class AlbumsState extends Equatable{
+abstract class StocksState extends Equatable{
   @override
   // TODO: implement props
   List<Object?> get props => [];
 }
 
-class AlbumLoadingState extends AlbumsState{
+class StockLoadingState extends StocksState{
 
 }
-class AlbumInitialState extends AlbumsState{ }
+class StockInitialState extends StocksState{ }
 
-class AlbumGetState extends AlbumsState{
+class AlbumGetState extends StocksState{
 
 }
 
-class AlbumLoadedState extends AlbumsState{
+class StockLoadedState extends StocksState{
   final List<Stocks> stocks;
-  AlbumLoadedState({required this.stocks});
+  StockLoadedState({required this.stocks});
 }
-class AlbumListErrorstate extends AlbumsState{
+class StockListErrorstate extends StocksState{
 
   final error;
-  AlbumListErrorstate({this.error});
+  StockListErrorstate({this.error});
 }

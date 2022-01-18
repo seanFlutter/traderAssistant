@@ -6,6 +6,6 @@ abstract class StockEvent {}
 
 class AlbumInitialEvent extends StockEvent {}
 
-class AlbumGetEvent extends StockEvent {
+class StockGetEvent extends StockEvent {
 
 }
