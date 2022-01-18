@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:traderassistant/presentation/screens/favorite.dart';
 import 'package:traderassistant/presentation/screens/portfolios.dart';
 import 'package:traderassistant/presentation/screens/removeAds.dart';
-import 'package:traderassistant/targetPrice.dart';
+import 'package:traderassistant/presentation/screens/targetPrice.dart';
+
 import 'package:traderassistant/presentation/pages/market_screen.dart';
 
 class NoticeScreen extends StatefulWidget {

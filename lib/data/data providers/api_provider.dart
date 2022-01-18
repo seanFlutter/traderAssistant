@@ -1,7 +1,5 @@
 import 'dart:convert';
 import 'package:http/http.dart' show Client;
-import 'package:traderassistant/models/album_model.dart';
-import 'package:traderassistant/models/stocks_lists_response_model.dart';
 
 // class ApiProvider {
 //   Client client = Client();

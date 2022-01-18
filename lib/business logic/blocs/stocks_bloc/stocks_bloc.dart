@@ -1,13 +1,11 @@
 
 import 'dart:io';
-import 'package:traderassistant/blocs/album_bloc/album_events.dart';
-import 'package:traderassistant/blocs/album_bloc/album_state.dart';
 import 'package:equatable/equatable.dart';
-import 'package:traderassistant/models/album_model.dart';
-import 'package:traderassistant/models/stocks_lists_response_model.dart';
+import 'package:traderassistant/business%20logic/blocs/stocks_bloc/stocks_event.dart';
+import 'package:traderassistant/business%20logic/blocs/stocks_bloc/stocks_state.dart';
+import 'package:traderassistant/data/models/stocks_lists_response_model.dart';
 import 'package:traderassistant/data/repositories/stocks_respository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:traderassistant/models/album_model.dart';
 import 'package:traderassistant/data/data%20providers/api_service.dart';
 
 class StocksBloc extends Bloc<StockEvent,StocksState>

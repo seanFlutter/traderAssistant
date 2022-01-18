@@ -1,64 +1,40 @@
 import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:traderassistant/blocs/album_bloc/album_bloc.dart';
-import 'package:traderassistant/providers/market_provider.dart';
+
 import 'package:traderassistant/data/repositories/stocks_respository.dart';
 import 'package:traderassistant/presentation/pages/album_page.dart';
 import 'package:traderassistant/presentation/pages/notice_screen.dart';
+import 'package:traderassistant/presentation/screens/authentication/login_screen.dart';
 import 'presentation/pages/market_screen.dart';
 import 'package:provider/provider.dart';
-import 'targetPrice.dart';
 
 void main() {
   runApp(
-    /// Providers are above [MyApp] instead of inside it, so that tests
-    /// can use [MyApp] while mocking the providers
-    MultiProvider(
-      providers: [
-       ChangeNotifierProvider(create: (_) => MarketProvider()),
-      ],
-      child:  MyApp(),
-    ),
-  );
+
+      /// Providers are above [MyApp] instead of inside it, so that tests
+      /// can use [MyApp] while mocking the providers
+      MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
-     // initialRoute: NoticeScreen.id,
-      home: BlocProvider(create: (context)=>StocksBloc(stocksrepository: StocksRepository(),),
-          child:
-        //AlbumClass(),
-        MarketScreen()
-      ),
+      initialRoute: LoginScreen.id,
+    //  home: MarketScreen(),
       routes: {
-NoticeScreen.id : (context) => NoticeScreen(),
-MarketScreen.id : (context) => MarketScreen(),
-     },
+
+        NoticeScreen.id: (context) => NoticeScreen(),
+
+        MarketScreen.id: (context) => MarketScreen(),
+        LoginScreen.id: (context) => LoginScreen(),
+
+
+
+      },
     );
   }
 }
 ////FirstPage
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,9 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:traderassistant/models/album_model.dart';
 import 'package:http/http.dart' as http;
-import 'package:traderassistant/models/stocks_lists_response_model.dart';
+import 'package:traderassistant/data/models/stocks_lists_response_model.dart';
 
 class StocksService{
   String BASE_URL = 'https://twelve-data1.p.rapidapi.com/stocks';
@@ -21,7 +20,6 @@ print('1');
 return stocksQueryResponseFromJson(response.body).data!;
 
 
-print('2');
 
 
     } else {

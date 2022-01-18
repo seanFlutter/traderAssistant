@@ -4,9 +4,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:traderassistant/presentation/pages/notice_screen.dart';
+import 'package:traderassistant/presentation/screens/targetPrice.dart';
 import 'favorite.dart';
 import '../pages/market_screen.dart';
-import '../../targetPrice.dart';
+
 import '../../main.dart';
 
 ////PortFolios

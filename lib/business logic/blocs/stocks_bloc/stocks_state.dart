@@ -1,8 +1,7 @@
 // import 'package:equatable/equatable.dart';
 // import 'package:traderassistant/models/album_model.dart';
 import 'package:equatable/equatable.dart';
-import 'package:traderassistant/models/album_model.dart';
-import 'package:traderassistant/models/stocks_lists_response_model.dart';
+import 'package:traderassistant/data/models/stocks_lists_response_model.dart';
 
 
 abstract class StocksState extends Equatable{

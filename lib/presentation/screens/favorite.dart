@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:traderassistant/presentation/pages/notice_screen.dart';
+import 'package:traderassistant/presentation/screens/targetPrice.dart';
 import 'portfolios.dart';
-import '../../targetPrice.dart';
 import 'package:traderassistant/presentation/pages/market_screen.dart';
 
 ////Favorites

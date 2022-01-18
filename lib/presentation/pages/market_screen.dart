@@ -1,16 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:traderassistant/blocs/album_bloc/album_bloc.dart';
-import 'package:traderassistant/blocs/album_bloc/album_events.dart';
-import 'package:traderassistant/blocs/album_bloc/album_state.dart';
-import 'package:traderassistant/models/stocks_lists_response_model.dart';
 import 'package:traderassistant/data/data%20providers/api_service.dart';
+import 'package:traderassistant/data/models/stocks_lists_response_model.dart';
 import 'package:traderassistant/presentation/pages/album_page.dart';
 import 'package:traderassistant/presentation/pages/notice_screen.dart';
+import 'package:traderassistant/presentation/screens/targetPrice.dart';
 import '../screens/favorite.dart';
 import '../screens/portfolios.dart';
-import '../../targetPrice.dart';
+import 'package:traderassistant/business logic/blocs/stocks_bloc/stocks_bloc.dart';
+import 'package:traderassistant/business logic/blocs/stocks_bloc/stocks_event.dart';
+import 'package:traderassistant/business logic/blocs/stocks_bloc/stocks_state.dart';
+
 import '../../main.dart';
 
 
@@ -44,20 +45,20 @@ final List<int> companyPrices = [555, 333, 222];
 //   print('check: loaded albums');
 // }
 
-
-  loadAlbums() async
-  {
-    print('check: loading albums');
-    context.read<StocksBloc>().add(StockGetEvent());
-    // context.read<AlbumsBloc>().add(AlbumEvents.fetchAlbums);
-    print('check: loaded albums');
-  }
-@override
-  void initState() {
-    // TODO: implement initState
-loadAlbums();
-    super.initState();
-  }
+//
+//   loadAlbums() async
+//   {
+//     print('check: loading albums');
+//     context.read<StocksBloc>().add(StockGetEvent());
+//     // context.read<AlbumsBloc>().add(AlbumEvents.fetchAlbums);
+//     print('check: loaded albums');
+//   }
+// @override
+//   void initState() {
+//     // TODO: implement initState
+// loadAlbums();
+//     super.initState();
+//   }
 
 
   @override
@@ -128,14 +129,14 @@ loadAlbums();
                   return CompanyTile(companyName: companyNames[i], companyPrice: companyPrices[i]);
                 }),
                 Column(
-                  children: [
+                  children: <Widget>[
                     Container(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Row(
-                            children: [
+                            children: <Widget>[
                               Text(
                                 'AEX',
                                 style: TextStyle(

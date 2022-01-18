@@ -1,11 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:traderassistant/blocs/album_bloc/album_bloc.dart';
-import 'package:traderassistant/blocs/album_bloc/album_events.dart';
-import 'package:traderassistant/blocs/album_bloc/album_state.dart';
-import 'package:traderassistant/models/album_model.dart';
-import 'package:traderassistant/models/stocks_lists_response_model.dart';
+import 'package:traderassistant/business logic/blocs/stocks_bloc/stocks_bloc.dart';
+import 'package:traderassistant/business logic/blocs/stocks_bloc/stocks_state.dart';
+import 'package:traderassistant/business%20logic/blocs/stocks_bloc/stocks_event.dart';
+import 'package:traderassistant/data/models/stocks_lists_response_model.dart';
+
 import 'package:traderassistant/data/repositories/stocks_respository.dart';
 
 class AlbumClass extends StatefulWidget{
