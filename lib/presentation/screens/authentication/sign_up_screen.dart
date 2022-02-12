@@ -1,52 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:traderassistant/auth_credentials.dart';
 import 'package:traderassistant/data/data%20providers/auth_service.dart';
-import 'package:traderassistant/presentation/screens/authentication/sign_up_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  //static const id = 'login_page';
+class SignUpScreen extends StatefulWidget {
+  // static const id = 'signup_screen';
+
+  final VoidCallback? shouldShowLogin;
+  final ValueChanged<SignUpCredentials>? didProvideCredentials;
+
+  SignUpScreen({Key? key, this.shouldShowLogin, this.didProvideCredentials}) : super(key: key);
   @override
-  final VoidCallback? shouldShowSignUp;
-  final ValueChanged<LoginCredentials>? didProvideCredentials;
-
-  LoginScreen({Key? key, this.shouldShowSignUp, this.didProvideCredentials}) : super(key: key);
-  State<StatefulWidget> createState() => _LoginScreenState();
+  State<StatefulWidget> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  // 1
+class _SignUpScreenState extends State<SignUpScreen> {
   final _usernameController = TextEditingController();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    // 2
     return Scaffold(
-      // 3
       body: SafeArea(
           minimum: EdgeInsets.symmetric(horizontal: 40),
-          // 4
           child: Stack(children: [
-            // Login Form
-            _loginForm(),
+            // Sign Up Form
+            _signUpForm(),
 
-            // 6
-            // Sign Up Button
+            // Login Button
             Container(
               alignment: Alignment.bottomCenter,
               child: FlatButton(
                   onPressed:
-                   // print('${AuthState().authFlowStatus.toString()}');
-                    widget.shouldShowSignUp!
-                  ,
-                  child: Text('Don\'t have an account? Sign up.')),
+                    // print('${AuthState().authFlowStatus.toString()}');
+                    // print('check: pressed oh');
+                    widget.shouldShowLogin!,
+                  child: Text('Already have an account? Login.')),
             )
           ])),
     );
   }
 
-  // 5
-  Widget _loginForm() {
+  Widget _signUpForm() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -54,7 +49,14 @@ class _LoginScreenState extends State<LoginScreen> {
         TextField(
           controller: _usernameController,
           decoration:
-              InputDecoration(icon: Icon(Icons.mail), labelText: 'Username'),
+              InputDecoration(icon: Icon(Icons.person), labelText: 'Username'),
+        ),
+
+        // Email TextField
+        TextField(
+          controller: _emailController,
+          decoration:
+              InputDecoration(icon: Icon(Icons.mail), labelText: 'Email'),
         ),
 
         // Password TextField
@@ -66,24 +68,28 @@ class _LoginScreenState extends State<LoginScreen> {
           keyboardType: TextInputType.visiblePassword,
         ),
 
-        // Login Button
+        // Sign Up Button
         FlatButton(
-            onPressed: _login,
-            child: Text('Login'),
+            onPressed: _signUp,
+            child: Text('Sign Up'),
             color: Theme.of(context).accentColor)
       ],
     );
   }
 
-  // 7
-  void _login() {
+  void _signUp() {
     final username = _usernameController.text.trim();
+    final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
 
     print('username: $username');
+    print('email: $email');
     print('password: $password');
-    final credentials =
-    LoginCredentials(username: username, password: password);
+    final credentials = SignUpCredentials(
+        username: username,
+        email: email,
+        password: password
+    );
     widget.didProvideCredentials!(credentials);
   }
 }

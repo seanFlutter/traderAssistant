@@ -44,6 +44,9 @@ dependencies:
   fluttertoast: ^8.0.8
   connectivity: ^3.0.6
   shared_preferences: ^2.0.12
+  camera:
+  path_provider:
+  path:
 
 
 dev_dependencies:
